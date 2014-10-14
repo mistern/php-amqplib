@@ -337,6 +337,9 @@ class AMQPWriter
             } elseif ($ftype == 'I') {
                 $table_data->write('I');
                 $table_data->write_signed_long($v);
+            } elseif ($ftype=='l') {
+                $table_data->write('l');
+                $table_data->write_longlong($v);
             } elseif ($ftype == 'D') {
                 // 'D' type values are passed AMQPDecimal instances.
                 $table_data->write('D');
